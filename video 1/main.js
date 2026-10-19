@@ -12,11 +12,11 @@ console.log("hoc reactjs")
 
 //lay tat ca
 
-import * as name from "./named.js"
+import * as name from "../named.js"
 console.log(name.Age);
 name.myFun;
 
-import df from "./named.js"
+import df from "../named.js"
 console.log(df)
 
 
