@@ -21,17 +21,35 @@ const users = [
   { id: 3, name: "hai", age: "20" }
 ]
 
+// function UserList() {
+//   return (
+//     <div>
+//       <h1>Danh sach</h1>
+
+//       <ul>
+//         {users.map((user) => (
+//           <li key={user.id}>{user.name} is {user.age} years old</li>
+//         ))}
+//       </ul>
+//     </div>
+//   )
+// }
+
+
+// tham so cua map
 function UserList() {
   return (
     <div>
       <h1>Danh sach</h1>
 
       <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.name} is {user.age} years old</li>
+        {users.map((user, index, array) => (
+          <li key={user.id}>
+            {user.name} is {user.age} years old — Stt: {index + 1}/{array.length}
+          </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
 export default UserList;
