@@ -1,55 +1,19 @@
-// function App() {
-//   // const fruitList = ["Apple", "Banana", "Orange"];
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
-//   // return (
-//   //   <div>
-//   //     <h1>Học ReactJS</h1>
+import Home from "./pages/Home";
 
-//   //     <ul>
-//   //       {fruitList.map((fruit, index) => (
-//   //         <li key={index}>{fruit}</li>
-//   //       ))}
-//   //     </ul>
-//   //   </div>
-//   // );
-// }
-// export default App;
-
-const users = [
-  { id: 1, name: "nhut", age: "30" },
-  { id: 2, name: "kieu", age: "10" },
-  { id: 3, name: "hai", age: "20" }
-]
-
-// function UserList() {
-//   return (
-//     <div>
-//       <h1>Danh sach</h1>
-
-//       <ul>
-//         {users.map((user) => (
-//           <li key={user.id}>{user.name} is {user.age} years old</li>
-//         ))}
-//       </ul>
-//     </div>
-//   )
-// }
-
-
-// tham so cua map
-function UserList() {
+function App() {
   return (
-    <div>
-      <h1>Danh sach</h1>
-
-      <ul>
-        {users.map((user, index, array) => (
-          <li key={user.id}>
-            {user.name} is {user.age} years old — Stt: {index + 1}/{array.length}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-export default UserList;
+
+export default App;
