@@ -18,10 +18,10 @@ body {
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 2.5px;
-  color: #e3451e;
+  color: #2e5a44;
   text-transform: uppercase;
   padding: 6px 18px;
-  border: 1.5px solid #e3451e;
+  border: 1.5px solid #2e5a44;
   border-radius: 50px;
 }
 
@@ -45,7 +45,7 @@ body {
   font-weight: 700;
   letter-spacing: 2.5px;
   line-height: 1.6;
-  color: #e3451e;
+  color: #2e5a44;
   text-transform: uppercase;
   padding: 6px 18px;
 }
@@ -55,7 +55,7 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #e3451e;
+  background-color: #2e5a44;
 }
 
 /* Lưu ý: thẻ cha nên có text-align: center để căn giữa inline-block */
@@ -63,7 +63,7 @@ body {
   text-align: center;
   font-size: 34px;
   font-weight: 800;
-  color: #e3451e;
+  color: #2e5a44;
   margin: 0 0 40px 0;
   letter-spacing: 1.2px;
   text-transform: uppercase;

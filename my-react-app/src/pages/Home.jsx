@@ -2,66 +2,12 @@ import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 import Banner from '../components/Banner';
 import Footer from '../components/Footer';
+import products from "../components/data/Products";
 import '../App.css';
 
-const products = [
-  {
-    id: 1,
-    name: "Cà phê",
-    price: "29.000 VNĐ",
-    image: "/images/cafe.jpg",
-    category: "cà phê"
-  },
-  {
-    id: 2,
-    name: "Trà sữa chân trâu",
-    price: "35.000 VNĐ",
-    image: "/images/tra-sua.jpg",
-    category: "trà sữa"
-  },
-  {
-    id: 3,
-    name: "Nước dừa trân châu dừa",
-    price: "39.000 VNĐ",
-    image: "/images/coconut.jpg",
-    category: "nước dừa"
-  },
-  {
-    id: 4,
-    name: "Sữa tươi kem cheese",
-    price: "29.000 VNĐ",
-    image: "/images/stuoi-cheese.jpg",
-    category: "sữa tươi"
-  },
-  {
-    id: 5,
-    name: "Olong khoai môn tươi",
-    price: "35.000 VNĐ",
-    image: "/images/olong-kmt.jpg",
-    category: "trà"
-  },
-  {
-    id: 6,
-    name: "Chè khúc bạch",
-    price: "39.000 VNĐ",
-    image: "/images/khuc-bach.jpg",
-    category: "chè"
-  },
-  {
-    id: 7,
-    name: " Hồng trà tươi",
-    price: "39.000 VNĐ",
-    image: "/images/hongtratuoi.jpg",
-    category: "trà"
-  },
-  {
-    id: 8,
-    name: "Trà lựu",
-    price: "39.000 VNĐ",
-    image: "/images/giainhiet.jpg",
-    category: "trà"
-  }
-];
+
+const featuredProducts = products.filter(
+  product => product.featured);
 
 function Home() {
   return (
@@ -75,7 +21,7 @@ function Home() {
           <p className="section-decs">The drink that  started it all, each one a masterpiece of flavor and texture </p>
         </div>
         <div className="product-grid">
-          {products.map(product => (
+          {featuredProducts.map(product => (
             <ProductCard
               key={product.id}
               image={product.image}
