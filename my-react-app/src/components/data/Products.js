@@ -116,7 +116,7 @@ const products = [
     name: " Cà phê nước dừa",
     price: "39.000 VNĐ",
     image: "/images/cf_nuocdua.jpg",
-    category: "cà phê",
+    category: ["cà phê", "nước dừa"],
     featured: false
   },
   {

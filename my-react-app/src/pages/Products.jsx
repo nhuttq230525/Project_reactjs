@@ -38,14 +38,45 @@ function Products() {
     //mặc định hiển thị tất cả
     const [selectedCategory, setSelectedCategory] = useState("tất cả");
 
+    // chức năng tìm kiếm
+    const [keywork, setKeyword] = useState("");
+
+    // sap xep gia san pham
+    const [sortOrder, setSortOrder] = useState("default")
+
     //danh sách các nút phân loại
     const categories = ["tất cả", "nước dừa", "trà sữa", "cà phê", "trà", "đồ ăn vặt"];
 
-    //lọc danh sách sản phẩm
-    const filteredProducts =
-        selectedCategory === "tất cả"
-            ? products
-            : products.filter(product => product.category === selectedCategory);
+    //lọc danh sách sản phẩm và tìm kiếm
+    const filteredProducts = products.filter(product => {
+        //kiem tra danh muc san pham
+        const matchCategory =
+            selectedCategory === "tất cả" ||
+            product.category.includes(selectedCategory);
+        // kiem tra tu khoa san pham
+        const matchKeyword =
+            product.name.toLocaleLowerCase().trim().includes(keywork.trim().toLocaleLowerCase());
+        // san pham thoa man 2 dkien
+        return matchCategory && matchKeyword;
+    });
+
+    //logic sap xem gia tri san pham
+    const sortedProducts = [...filteredProducts].sort((a, b) => {
+
+        const priceA = Number(a.price.replace(/\D/g, ""));
+        const priceB = Number(b.price.replace(/\D/g, ""));
+
+        if (sortOrder === "asc") {
+            return priceA - priceB;
+        }
+
+        if (sortOrder === "desc") {
+            return priceB - priceA;
+        }
+
+        return 0;
+    });
+
     // lấy thông tin xuất xứ
     const originInfo =
         categoryStories[selectedCategory] || categoryStories["tất cả"];
@@ -85,16 +116,43 @@ function Products() {
                 </div>
 
                 <div className="filtered-products-section">
+                    <div className="search-box">
+                        <input
+                            type="text"
+                            placeholder="Tìm kiếm nước uống ngon nhất ..."
+                            value={keywork}
+                            onChange={(event) => setKeyword(event.target.value)}
+                        />
+                    </div>
+                    <div className="sort-box">
+                        <label htmlFor="sort-price">Sắp xếp theo giá:</label>
+
+                        <select
+                            id="sort-price"
+                            value={sortOrder}
+                            onChange={(event) => setSortOrder(event.target.value)}
+                        >
+                            <option value="default">Mặc định</option>
+                            <option value="asc">Giá thấp đến cao</option>
+                            <option value="desc">Giá cao đến thấp</option>
+                        </select>
+                    </div>
                     <div className="product-grid">
-                        {filteredProducts.map(product => (
-                            <ProductCard
-                                key={product.id}
-                                image={product.image}
-                                name={product.name}
-                                price={product.price}
-                                category={product.category}
-                            />
-                        ))}
+                        {filteredProducts.length > 0 ? (
+                            sortedProducts.map(product => (
+                                <ProductCard
+                                    key={product.id}
+                                    image={product.image}
+                                    name={product.name}
+                                    price={product.price}
+                                    category={product.category}
+                                />
+                            ))
+                        ) : (
+                            <p className="no-products">
+                                Không tìm thấy sản phẩm phù hợp!
+                            </p>
+                        )}
                     </div>
                 </div>
             </div>

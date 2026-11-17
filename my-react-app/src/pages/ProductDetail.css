@@ -1,0 +1,149 @@
+/* --- BỐ CỤC CHÍNH (PRODUCT DETAIL) --- */
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 30px;
+    align-items: center; 
+}
+
+/* --- KHUNG ẢNH SẢN PHẨM --- */
+.detail-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(31, 58, 46, 0.08);
+}
+
+.detail-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hiệu ứng phóng to nhẹ ảnh khi rê chuột vào */
+.detail-image:hover img {
+    transform: scale(1.03);
+}
+
+/* --- KHUNG THÔNG TIN SẢN PHẨM --- */
+.detail-info {
+    padding: 10px 0;
+}
+
+.detail-category {
+    color: #8b795e;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.detail-info h1 {
+    font-size: 38px;
+    color: #1f3a2e;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.detail-price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #b0783c;
+    margin-bottom: 20px;
+}
+
+.detail-description {
+    line-height: 1.8;
+    color: #667068;
+    font-size: 15px;
+    margin: 0 0 30px 0;
+    border-left: 3px solid #d5dfd5;
+    padding-left: 15px;
+}
+
+/* --- BỘ ĐIỀU KHIỂN SỐ LƯỢNG (QUANTITY CONTROL) --- */
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+    background: #f4f7f4;
+    border: 1.5px solid #d5dfd5;
+    border-radius: 30px;
+    padding: 6px;
+    margin-bottom: 30px;
+}
+
+.quantity-control button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: white;
+    color: #1f3a2e;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(31, 58, 46, 0.05);
+    transition: all 0.2s ease;
+}
+
+.quantity-control button:hover {
+    background: #2e5a44;
+    color: white;
+}
+
+.quantity-control span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f3a2e;
+    width: 45px;
+    text-align: center;
+}
+
+/* --- KHU VỰC NÚT BẤM (BUTTONS) --- */
+.btn-add-cart,
+.btn-back {
+    padding: 15px 30px;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add-cart {
+    background: #2e5a44;
+    color: white;
+    box-shadow: 0 6px 20px rgba(46, 90, 68, 0.25);
+}
+
+.btn-add-cart:hover {
+    background: #244836;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(46, 90, 68, 0.35);
+}
+
+.btn-back {
+    background: #eef2ee;
+    color: #2e5a44;
+}
+
+.btn-back:hover {
+    background: #e2e8e2;
+    transform: translateY(-2px);
+}
+

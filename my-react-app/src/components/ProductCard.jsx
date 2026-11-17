@@ -1,4 +1,13 @@
-function ProductCard({ image, name, price, category }) {
+import { useNavigate } from "react-router-dom";
+
+function ProductCard({id, image, name, price, category }) {
+
+  const navigate = useNavigate();
+
+  const handleViewDetail = () => {
+    navigate(`/products/${id}`);
+  };
+
   return (
     <div className="product-card">
 
@@ -8,7 +17,8 @@ function ProductCard({ image, name, price, category }) {
       <div className="product-info" data-category={category}>
         <h3 className="product-name">{name}</h3>
         <p className="product-price">{price}</p>
-        <button className="btn-buy">Mua ngay</button>
+        <button className="btn-buy"
+        onClick={handleViewDetail}>Xem Chi Tiết</button>
       </div>
     </div>
   );
